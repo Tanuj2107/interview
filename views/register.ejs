@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700"
+        rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+            integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script defer src="js/main.js" type="text/javascript"></script>
+    <script defer src="js/canvas.js" type="text/javascript"></script>
+    <title>Login</title>
+</head>
+
+<body class="canvas-bg">
+    <div class="login-page">
+        <div class="login-banner">
+            <div class="login-banner-logo">
+                <img src="/images/dummy-logo.png" alt="Logo image">
+            </div>
+        </div>
+
+        <div class="form_holder">
+            <h3 class="form-title">Register</h3>
+            <form action="/register" method="POST" id="loginForm">
+                <div class="form-group email-field-grp">
+                    <div class="input">
+                        <input required type="text" class="form-control email-field" id="name" name="name">
+                        <span class="input_line"></span>
+                        <label><i class="fa fa-at" aria-hidden="true"></i> Name</label>
+                    </div>
+                </div>
+                <div class="form-group email-field-grp">
+                    <div class="input">
+                        <input required type="email" class="form-control email-field" id="email" name="email">
+                        <span class="input_line"></span>
+                        <label><i class="fa fa-at" aria-hidden="true"></i> Email Id</label>
+                    </div>
+                </div>
+                <div class="form-group password-field">
+                    <div class="input">
+                        <input required type="password" class="form-control password" id="password" name="password"  >
+                        <span class="input_line"></span>
+                        <label><i class="fa fa-lock" aria-hidden="true"></i> Password</label>
+                    </div>
+                </div>
+                <div class="form-group password-field">
+                    <div class="input">
+                        <input required type="password" class="form-control password" id="confirm-password" name="confirmpassword"  >
+                        <span class="input_line"></span>
+                        <label><i class="fa fa-lock" aria-hidden="true"></i>Confirm Password</label>
+                    </div>
+                </div>
+                <button type="submit" class="primary-btn">Register</button>
+            </form>
+        </div>
+
+    </div>
+    <script>
+        $(document).ready(function(){
+            $('.form-group .form-control').focus(function(){
+                $(this).closest('.form-group').addClass('input_active');
+            });
+            $('.form-group .form-control').each(function(){
+                $(this).on('blur', function(){
+                    if($(this).val().trim() != "") {
+                        $(this).closest('.form-group').addClass('input_active');
+                    }
+                    else {
+                        $(this).closest('.form-group').removeClass('input_active');
+                    }
+                });  
+            });
+        });
+    </script>
+</body>
+
+</html>
